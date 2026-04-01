@@ -6,7 +6,7 @@ function twoAdicTree(ns) {
     */
     const root_node = {
         id: "*",
-        label: "*",
+        label: "\u2026", // ellipsis unicode
         // label: ns.join(" "),
     };
     var tree = { nodes: [root_node], edges: [] };
@@ -42,7 +42,7 @@ function twoAdicTree(ns) {
                 }
             }
             if (even_ns.length > 0) {
-                const label = "*0" + current_label.slice(1);
+                const label = "\u20260" + current_label.slice(1);
                 const node = {
                     id: label,
                     label: label,
@@ -63,7 +63,7 @@ function twoAdicTree(ns) {
                 }
             }
             if (odd_ns.length > 0) {
-                const label = "*1" + current_label.slice(1);
+                const label = "\u20261" + current_label.slice(1);
                 const node = {
                     id: label,
                     label: label,

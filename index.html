@@ -104,10 +104,10 @@
     </div>
     <br />
 
-    <form onsubmit="draw(); return false;">
+    <form method="GET">
       <label for="intList">List of integers:</label>
-      <input id="intList" type="text" value="0, 1, 2, 3, 5, 13, 102" style="width: 700px" />
-      <input type="submit" value="Go" />
+      <input id="intList" name="intList" type="text" value="0, 1, 2, 3, 5, 13, 102" style="width: 700px" />
+      <button type="submit">Go</button>
     </form>
     <br />
 
@@ -179,6 +179,21 @@
         console.log(network);
         // network.redraw();
       }
+
+      // 1. Get the query string from the URL (everything after the ?)
+      const queryString = window.location.search;
+
+      // 2. Parse the parameters
+      const urlParams = new URLSearchParams(queryString);
+
+      // 3. Get a specific value (e.g., the "name" from ?name=John)
+      const inputList = urlParams.get('intList');
+
+      // 4. Put that value into your input box
+      if (inputList) {
+          console.log(inputList);
+          document.getElementById('intList').value = inputList;
+      }      
     </script>
 
 
